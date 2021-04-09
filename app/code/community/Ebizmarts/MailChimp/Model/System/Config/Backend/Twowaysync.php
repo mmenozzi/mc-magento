@@ -25,7 +25,7 @@ class Ebizmarts_MailChimp_Model_System_Config_Backend_Twowaysync extends Mage_Co
             : $helper->getApiKey($this->getScopeId(), $this->getScope());
         $listId = $helper->getGeneralList($this->getScopeId(), $this->getScope());
         if ($apiKey && $moduleIsActive && $listId && $this->isValueChanged()) {
-            $helper->handleWebhookChange($this->getScopeId(), $this->getScope());
+            Mage::helper('mailchimp/webhook')->handleWebhookChange($this->getScopeId(), $this->getScope());
         }
     }
 
